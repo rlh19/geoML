@@ -313,9 +313,9 @@ def arctic_lake():
 
 def s_index_sun():
     	path = _os.path.dirname(__file__)
-    	file = _os.path.join(path, "sample_data/MtWilson_s_index_Sun_scaled.txt")
+    	file = _os.path.join(path, "sample_data/MtWilson_s_index_Sun_monthly.txt")
 
-    	raw_data = _pd.read_table(file, sep=" ", header=None, usecols=[0, 1], skiprows=5000)
+    	raw_data = _pd.read_table(file, sep=" ")
     	raw_data.set_axis(["JD-2400000", "Ca_H&K"], axis="columns", inplace=True)
     	s_index = _data.PointData(raw_data, "JD-2400000")
     	s_index.add_continuous_variable("Ca_H&K", raw_data["Ca_H&K"].values)
